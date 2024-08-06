@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django,python,macos,windows,linux,visualstudiocode,pycharm,venv,virtualenv
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python,macos,windows,linux,visualstudiocode,pycharm,venv,virtualenv
 
+# fake data 
+csv
 ### Django ###
 *.log
 *.pot
