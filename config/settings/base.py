@@ -19,6 +19,8 @@ CREATED_APP = [
 
 THIRD_PARTY_APP = [
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
 ]  # third party apps goe here
 
 INSTALLED_APPS = [*DEFAULT_APP, *CREATED_APP, *THIRD_PARTY_APP]
@@ -68,6 +70,12 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [  # new
+        # "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+], }
 
 LANGUAGE_CODE = "en-us"
 

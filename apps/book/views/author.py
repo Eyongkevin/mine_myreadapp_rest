@@ -3,6 +3,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
+from rest_framework.authentication import BaseAuthentication, SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
 from apps.book import models
 from apps.book import serializers
 
@@ -23,3 +25,5 @@ def list_authors(request):
 class DetailAuthor(generics.RetrieveAPIView):
     queryset = models.Author.objects.all()
     serializer_class = serializers.AuthorSerializer
+    # authentication_classes = (BaseAuthentication,  )
+    permission_classes = (IsAuthenticated, )

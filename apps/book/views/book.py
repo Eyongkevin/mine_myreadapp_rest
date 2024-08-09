@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAdminUser
 from apps.book import serializers
 from apps.book import models
 
@@ -19,6 +21,7 @@ def list_books(request, pk=None):
     return Response({'data': data.data}, status=status.HTTP_200_OK)
 
 @api_view(['POST'])
+@permission_classes([IsAdminUser])
 def create_book(request):
     with transaction.atomic():
         data = request.data
@@ -41,6 +44,7 @@ def create_book(request):
 
 
 class BooksView(APIView):
+    permission_classes = (IsAdminUser, )
 
     # GET
     def get(self, request):
