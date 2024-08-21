@@ -3,10 +3,11 @@ from apps.book.models import Author, BookAuthor
 
 
 class AuthorSerializer(serializers.ModelSerializer):
+    # names = serializers.CharField()
     names = serializers.SerializerMethodField() # read_only by default
 
-    def get_names(self, obj): # get_<field-name>
-        return f'{obj.first_name} {obj.last_name}'
+    # def get_names(self, obj): # get_<field-name>
+    #     return f'{obj.first_name} {obj.last_name}'
 
 
     def validate_first_name(self, value): # validate_<field-name>

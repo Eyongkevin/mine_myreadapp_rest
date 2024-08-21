@@ -5,3 +5,6 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100, null=True, blank=True)
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
+    
+    # def names(self):
+    #     return f'{self.first_name} {self.last_name}'
